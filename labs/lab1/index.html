@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
-<!--
-
-First Website
-and comment
-in html
-(comments can span multiple lines)
-
--->
+<!--  Comments: This is the first lab! -->
 
 <!-- This is the head -->
 <!-- All styles and javascript go inside the head -->
     <head>
         
         <meta charset="utf-8"/>
-        <title>    
+        <title> Lab 1: Personal Portfolio </title>
         
-        <h1> Lab 1: Personal Portfolio </h1> 
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" />        
         
-        </title>
-
+        <style>
+           hr {
+             background-color:red;
+           }
+        </style>
+        
+        
         
     </head>
 <!-- closing head -->
@@ -30,56 +29,57 @@ in html
         
         <header>
             
-            <h1> Martin Landin </h1>
+            <h1> Martin Landin </h1>  
+            
+            
             
         </header>
         
-            <hr width="50%" />
+        <hr id="hr_header">
         
         <nav>
-            <a href="index.html"> Home </a>
+            
+            <a href="index.html" id="current"> Home </a>
             <a href="about.html"> About </a>
             <a href="contact.html"> Contact </a>
+           
         </nav>
         
         <br><br>
         
-        <main>
+        <div id="content">
             
-            <figure>
-                <img src="img/juan_doe.png" alt="Juan Doe Pic"/>
-            </figure>
+            <section>
+                <img src="img/martin.png" alt="Juan Doe Pic">
+            </section>
+            <aside>
+                Hello! <br />
+                Thank you for visiting my professional portfolio website.
+                <br /><br />
+                I am a Computer Science Major, and I am a junior at CSUMB
+                <br /><br />
+                Feel free to contact me!
+                <br /><br />
+                <em>"Our greatest glory is not in never falling, but in rising every time we fall."</em><br />
+                - Confucius
+
+            </aside>
             
-            <div>
-                Hello!<br>
-                <p> Thank you for visiting my professional portfolio!! </p>
-                
-                I am a Software Engineer and have been recently hired at Acme Co
-                <br><br>
-                
-                <p> Feel free to contact me! </p>
-                
-                <em> "With ordinary talent and extraordinary
-                <strong>preserverence</strong> all things are attainable" </em>
-                
-                - Thomas F. Buxton
-                
-                
-            </div>
-            
-        </main>
+        </div>
+        
         
         <!-- This is the footer -->
         <!-- The footer goes inside the body but not always -->
         
-        <hr width="75%">
+        <hr id="hr_footer">
         
         <footer>
             
-            &copy; 2019. Martin Landin - CST 336 Internet Programming <br />
-            <strong>Disclaimer:</strong> The content of this page is fake. It's only for educational purposes.
-            <br>
-            <img src="../../img/csumbLogo.png" alt="CSUMB Logo" />
+         &copy; 2019.  Miguel Lara - CST 336 Internet Programming <br />
+         <strong>Disclaimer:</strong> The content of this page is fake. It's only for educational purposes.
+         <br>
+         <img src="../../img/csumbLogo.jpg" alt="CSUMB Logo" />
+            
             
         </footer>
         <!-- closing footer -->

@@ -1,0 +1,98 @@
+#hr_footer {
+  width: 100%;
+}
+
+#hr_header {
+  width: 75%;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: black; 
+}
+
+nav {
+  width: 960px;
+  margin: 0 auto; 
+  text-align: center; 
+}
+
+nav a {
+  padding:15px;
+  padding-bottom:4px;
+  font-size: 1.8em;
+  color: white;
+  text-decoration: none;
+}
+
+
+#content {
+  width: 960px;
+  margin: 0 auto; 
+  text-align: center;   
+}
+
+
+aside, section {
+  float: left;
+}
+
+aside {
+  text-align: left;
+  padding-left: 10px;
+  padding-top:  50px;
+  width:200px;
+  font-size: 1.2em;
+}
+
+section {
+  border-radius: 100px;
+}
+
+body {
+  background-color: #696969;
+  color: white;
+}
+
+header {
+  font-family: 'Permanent Marker',cursive;
+  color: #003C70;
+  font-size: 2.5em;
+}
+
+table {
+  text-align: center;
+  margin: 0 auto;
+}
+
+ul {
+  text-align: left;
+  padding-left: 200px;
+}
+
+#table-header {
+  background-color: #010A12;
+}
+    
+.table-row {
+  background-color: #2C3236;
+}
+
+.hobby {
+  color: #6B290D;
+  font-weight: bold;
+}
+
+nav a:hover{  /*pseudo class*/
+  font-size: 2em;
+}
+
+#current {
+  font-size: 3em;
+  color: #333333 ;
+  font-weight:; bold;
+}

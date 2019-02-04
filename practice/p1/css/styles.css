@@ -1,0 +1,28 @@
+.images {
+    width: 350px;
+    height: 235px;
+    display: table-cell;
+    text-align: center;
+    color: white;
+}
+
+.content {
+    width: 350px;
+    padding: 0;
+    margin: 0;
+    display: table;
+    margin: 0 auto;
+}
+
+body {
+    background: black;
+}
+
+hr {
+    width: 75%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}

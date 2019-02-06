@@ -1,0 +1,47 @@
+footer {
+    text-align: center;
+}
+
+.hr_footer {
+    width: 75%;
+}
+
+.hr_header {
+    width: 85%;
+}
+
+#homepage {
+    text-align: center;
+}
+
+
+
+#homepageimage {
+    margin: 0 auto;
+    display: block;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 11px;
+    color: blue
+}
+
+nav a:hover {
+    font-size: 2.0em;
+    transition: .4s;
+}
+
+p, h3 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.link {
+    text-align: center;
+    margin: 0 auto;  
+}

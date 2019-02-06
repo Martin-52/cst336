@@ -14,6 +14,10 @@ footer {
     text-align: center;
 }
 
+#siteTitle {
+    text-align: center;
+}
+
 
 
 #homepageimage {
@@ -36,12 +40,24 @@ nav a:hover {
     transition: .4s;
 }
 
-p, h3 {
+#mainpage {
     text-align: center;
     margin: 0 auto;
+}
+
+.content {
+    float: left;
 }
 
 .link {
     text-align: center;
     margin: 0 auto;  
+}
+
+#row {
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+
 }

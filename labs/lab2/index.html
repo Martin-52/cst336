@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Guess a Number </title>
+        <meta charset="utf-8" />
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        
+        <!--Bootstrap files-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <!--Custom Styles-->
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Guess a Number</h1>
+        </div>
+        
+        <div id="directions" class="resultParas">
+            Guess a number between 1 and 99 in seven attempts!
+            
+            <br><br>
+            <label for="guessField">Enter a guess: </label>
+            <input type="text" id="guessField" class="guessField">
+            <input type="submit" value="Submit Guess" class="guessSubmit">
+            
+            <br><br>
+            <p id="guesses"></p> 
+            <br>
+            <p id="won" >Won: <span id="wonTag" class="wonClass"></span></p>
+            <p id="lost" >Lost: <span id="lostTag"></span></p>
+            <p id="lastResult"></p>
+            <p id="lowOrHigh"></p>
+            <button id="reset">Reset</button>
+           
+        </div>
+        
+        <script>
+            /// JavaScript goes here
+            var randomNumber = Math.floor(Math.random()*99) + 1;
+            var guesses = document.querySelector("#guesses");
+            var lastResult = document.querySelector("#lastResult");
+            var lowOrHigh = document.querySelector("#lowOrHigh");
+            
+            var guessSubmit = document.querySelector(".guessSubmit");
+            var guessField = document.querySelector(".guessField");
+            
+            var guessCount = 1;
+            var wonCount = 0;
+            var lostCount = 0;
+            var resetButton = document.querySelector("#reset");
+            resetButton.style.display = "none";
+            guessField.focus()
+            
+            document.getElementById("wonTag").innerHTML = wonCount;
+            document.getElementById("lostTag").innerHTML = lostCount;
+            
+            function checkGuess() {
+                var userGuess = Number(guessField.value);
+                if(userGuess > 99) {
+                    alert("NUMBER GREATER THAN 99 ENTERED!!");
+                    return;
+                }    
+                if(guessCount === 1) {
+                    guesses.innerHTML = "Previous Guesses ";
+                }
+                guesses.innerHTML += userGuess + " ";
+                if(userGuess == randomNumber) {
+                    lastResult.innerHTML = "Congratulations! You got it right!";
+                    wonCount++;
+                    document.getElementById("wonTag").innerHTML = wonCount;
+                    lastResult.style.backgroundColor = "green";
+                    lowOrHigh.innerHTML = "";
+                    setGameOver();
+                } else if(guessCount === 7) {
+                    lastResult.innerHTML = "Sorry, you lost!";
+                    lostCount++;
+                    document.getElementById("lostTag").innerHTML = lostCount;
+                    setGameOver();
+                } else {
+                    lastResult.innerHTML = "Wrong";
+                    lastResult.style.backgroundColor = "red";
+                    if(userGuess < randomNumber) {
+                        lowOrHigh.innerHTML = "Last guess was too low!";
+                    } else if(userGuess > randomNumber) {
+                        lowOrHigh.innerHTML = "Last guess was too high!";
+                    }
+                }
+                
+                guessCount++;
+                guessField.value = "";
+                guessField.focus();
+            }
+            
+        guessSubmit.addEventListener("click", function() {
+            checkGuess();
+        });
+        
+        function setGameOver() {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetButton.style.display = "inline";
+            resetButton.addEventListener("click", function() {
+                resetGame();
+            });
+        }
+        
+        function resetGame() {
+            guessCount = 1;
+            wonCount = 0;
+            lostCount = 0;
+            
+            var resetParas = document.querySelector(".resultParas p");
+            for(var i = 0; i < resetParas.length; ++i) {
+                resetParas[i].textContent = "";
+            }
+            
+            resetButton.style.display = "none";
+            
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = "";
+            guessField.focus();
+            
+            lastResult.style.backgroundColor = "white";
+            
+            randomNumber = Math.floor(Math.random() * 99 ) + 1;
+            
+        }
+        
+        </script>
+    </body>
+</html>

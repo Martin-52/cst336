@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slot Machine</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" /> 
+    </head>
+    <body>
+        <h1>Slot Machine</h1>
+        <div id="button">
+            <button id="playButton">Play!</button>
+        </div>
+        <div id="images">
+            <div id="image1" class="cells"></div>
+            <div id="image2" class="cells"></div>
+            <div id="image3" class="cells"></div>    
+        </div>
+        
+        <h2 id="jackpot" class="text"></h2>
+        
+        <h2 id="slotOutcome" class="text"></h2>
+        <br>
+    
+        <h3 id="totalWinnings" class="text">Total Winnings $0</h3>
+            
+
+        <script>
+            let imageArray = ["cherry", "grapes", "seven"];
+            var winnings = 0;
+            
+            var randomIndex1 = Math.floor(Math.random() * 3);
+            var randomIndex2 = Math.floor(Math.random() * 3);
+            var randomIndex3 = Math.floor(Math.random() * 3);
+            var randomImage1 = imageArray[randomIndex1];
+            var randomImage2 = imageArray[randomIndex2];
+            var randomImage3 = imageArray[randomIndex3];
+            
+            $("#image1").html("<img src='img/"+randomImage1+".png'/>"); 
+            $("#image2").html("<img src='img/"+randomImage2+".png'/>"); 
+            $("#image3").html("<img src='img/"+randomImage3+".png'/>"); 
+            
+            $("#playButton").on("click", function() {
+                
+                $("#jackpot").html("");
+                /// Generates the random images
+                randomIndex1 = Math.floor(Math.random() * 3);
+                randomIndex2 = Math.floor(Math.random() * 3);
+                randomIndex3 = Math.floor(Math.random() * 3);
+                randomImage1 = imageArray[randomIndex1];
+                randomImage2 = imageArray[randomIndex2];
+                randomImage3 = imageArray[randomIndex3];
+                
+                $("#image1").html("<img src='img/"+randomImage1+".png'/>"); 
+                $("#image2").html("<img src='img/"+randomImage2+".png'/>"); 
+                $("#image3").html("<img src='img/"+randomImage3+".png'/>"); 
+                
+                
+                //// Checks the outcome of the slot
+                if(randomImage1 == "cherry" && randomImage2 == "cherry" && randomImage3 == "cherry") { /// Outcome of all cherries
+                    winnings += 100;
+                    $("#slotOutcome").html("You won $100!!");
+                } else if(randomImage1 == "grapes" && randomImage2 == "grapes" && randomImage3 == "grapes") { /// Outcome of all grapes
+                    winnings += 300;
+                    $("#slotOutcome").html("You won $300!!");
+                } else if(randomImage1 == "seven" && randomImage2 == "seven" && randomImage3 == "seven") { /// Jackpot outcome of all 7's
+                    winnings += 500;
+                    $("#jackpot").html("JACKPOT!!");
+                    $("#slotOutcome").html("You won $500!!");
+                } else { /// No Winning outcome
+                    $("#slotOutcome").html("Try Again");
+                }
+                
+                $("#totalWinnings").html("Total Winnings $" + winnings);
+            })
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+#images {
+    display: table;
+    margin: 0 auto;
+}
+
+.cells {
+    display: table-cell;
+}
+
+h1 {
+    text-align: center;
+}
+
+#button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

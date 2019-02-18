@@ -4,6 +4,7 @@
         <title>Slot Machine</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/styles.css" type="text/css" /> 
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Alegreya" />
     </head>
     <body>
         <h1>Slot Machine</h1>
@@ -17,6 +18,8 @@
         </div>
         
         <h2 id="jackpot" class="text"></h2>
+        
+        <audio src="audio/jackpot.m4a" id="sound"></audio>
         
         <h2 id="slotOutcome" class="text"></h2>
         <br>
@@ -35,12 +38,15 @@
             var randomImage2 = imageArray[randomIndex2];
             var randomImage3 = imageArray[randomIndex3];
             
+            var audio = new Audio("audio/jackpot.m4a");
+            
             $("#image1").html("<img src='img/"+randomImage1+".png'/>"); 
             $("#image2").html("<img src='img/"+randomImage2+".png'/>"); 
             $("#image3").html("<img src='img/"+randomImage3+".png'/>"); 
             
             $("#playButton").on("click", function() {
                 
+                $("#slotOutcome").css("color", "");
                 $("#jackpot").html("");
                 /// Generates the random images
                 randomIndex1 = Math.floor(Math.random() * 3);
@@ -66,8 +72,11 @@
                     winnings += 500;
                     $("#jackpot").html("JACKPOT!!");
                     $("#slotOutcome").html("You won $500!!");
+                    $("#sound")[0].play();
+                    
                 } else { /// No Winning outcome
                     $("#slotOutcome").html("Try Again");
+                    $("#slotOutcome").css("color", "red");
                 }
                 
                 $("#totalWinnings").html("Total Winnings $" + winnings);

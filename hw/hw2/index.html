@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />  
+        <title>The Office Quiz</title>
+    </head>
+    <body>
+        <div id="h1Header">
+            <h1>The Office (U.S.) Trivia Quiz</h1><br>
+        </div>
+        <br>
+        
+        <div id="image">
+            <img src="img/officeImage.jpg" alt="Trivia Night">
+        </div>
+        
+        <!--Question 1-->
+        <h2>1. What is the name of Kevin's dog?</h2>
+            <div id="question1">
+                <input type="radio" name="q1" id="max" value="Max"><label for="max">Max </label>
+                <input type="radio" name="q1" id="ruby" value="Ruby"><label for="ruby">Ruby </label>
+                <input type="radio" name="q1" id="doggie" value="Doggie"><label for="doggie">Doggie </label>
+                <input type="radio" name="q1" id="jewel" value="Jewel"><label for="jewel">Jewel </label>
+            </div>
+            <div id="q1feedback"></div>
+            <br>
+        
+        <!--Question 2-->
+        <h2>2. Who does Jim prank the most?</h2>
+        <select id="q2">
+            <option value="">Select One</option>
+            <option>Michael</option>
+            <option>Ryan</option>
+            <option>Dwight</option>
+            <option>Kelly</option>
+        </select>
+        <div id="q2feedback"></div>
+        <br>
+        
+        <!--Question 3-->
+        <h2>3. Who are the people from accounting?</h2>
+        <div id="question3">
+            <input type="checkbox" id="Angela"><label for="Angela">Angela</label>
+            <input type="checkbox" id="Jim"><label for="Jim">Jim</label>
+            <input type="checkbox" id="Oscar"><label for ="Oscar">Oscar</label>
+            <input type="checkbox" id="Pam" value="Pam"><label for ="Pam">Pam</label>
+            <input type="checkbox" id="Phyllis" value="Phyllis"><label for ="Phyllis">Phyllis</label>
+            <input type="checkbox" id="Kevin" value="Kevin"><label for ="Kevin">Kevin</label>
+        </div>
+        <div id="q3feedback"></div>
+        <br>
+        
+        <!--Question 4-->
+        <h2>4. According to Prison Mike, what is the worst thing about prison?</h2>
+            <div id="question4">
+                <input type="radio" name="q4" id="toby" value="toby"><label for="toby">Toby </label>
+                <input type="radio" name="q4" id="dementors" value="dementors"><label for="dementors">The Dementors </label>
+                <input type="radio" name="q4" id="daffy" value="daffy"><label for="daffy">Daffy Duck </label>
+                <input type="radio" name="q4" id="scott" value="scott"><label for="scott">Scotts Tots </label>
+            </div>
+            <div id="q4feedback"></div>
+            <br>  
+            
+        <!--Question 5-->
+        <h2>5. What season did Michael leave the office?</h2>
+        <input type = "number" id="q5">
+        <div id="q5feedback"></div>
+        <br>
+        
+        <div id="validSubmission"></div>
+        <br>
+            
+        <!--Submit Button-->
+        <button id="submitButton"> Submit </button>
+        <br>
+        <div id="totalScore"></div>
+
+    </body>
+    <script>
+        let q1_answer = "Ruby";
+        let q2_answer = "Dwight";
+        let q4_answer = "dementors";
+        let q5_answer = 7;
+        
+        function isFormValid(){
+            let isValid = true;
+            if ($("#q2").val() == "") {
+                isValid = false;
+                $("#validSubmission").html("Question 2 not answered");
+            }
+            return isValid;
+        }        
+        
+        $("#submitButton").on("click", function() {
+            
+            $("#validSubmission").html("");
+            
+            if (!isFormValid()) {   //isFormValid == false
+                return;
+            }
+            
+            let totalCorrect = 0;
+            
+            let q1_response = $("input[name=q1]:checked").val();
+            let q2_response = $("#q2").val();
+            let q4_response = $("input[name=q4]:checked").val();
+            let q5_response = $("#q5").val();
+            
+            
+            //Question 1
+            if(q1_response == q1_answer) {
+                $("#q1feedback").html("Correct!");
+                $("#q1feedback").attr("class", "correct");
+                totalCorrect++;
+            } else {
+                $("#q1feedback").html("Incorrect!");
+                $("#q1feedback").attr("class", "incorrect");
+            }
+            
+            //Question 2
+            if(q2_response == q2_answer) {
+                $("#q2feedback").html("Correct!");
+                $("#q2feedback").attr("class", "correct"); 
+                totalCorrect++;
+            } else {
+                $("#q2feedback").html("Incorrect!");
+                $("#q2feedback").attr("class", "incorrect"); 
+            }
+            
+            //Question 3
+            if ($("#Oscar").is(":checked") && $("#Angela").is(":checked") && $("#Kevin").is(":checked") && !$("#Jim").is(":checked") && !$("#Phyllis").is(":checked") && !$("#Pam").is(":checked") ){
+                $("#q3feedback").html("Correct");
+                $("#q3feedback").attr("class", "correct");
+                totalCorrect++;
+            } else {
+                $("#q3feedback").html("Incorrect!");
+                $("#q3feedback").attr("class", "incorrect"); 
+            }
+            
+            if(q4_response == q4_answer) {
+                $("#q4feedback").html("Correct!");
+                $("#q4feedback").attr("class", "correct");
+                totalCorrect++;
+            } else {
+                $("#q4feedback").html("Incorrect!");
+                $("#q4feedback").attr("class", "incorrect");
+            }   
+            
+            //Question 5
+            if(q5_response == q5_answer) {
+                $("#q5feedback").html("Correct!");
+                $("#q5feedback").attr("class", "correct"); 
+                totalCorrect++;
+            } else {
+                $("#q5feedback").html("Incorrect!");
+                $("#q5feedback").attr("class", "incorrect"); 
+            }            
+            if(totalCorrect == 5) {
+                $("#totalScore").html("YOU GOT A PERFECT SCORE!! 5/5")
+                $("#totalScore").attr("class", "perfect");
+            } else {
+                $("#totalScore").html("You got " + totalCorrect + "/5 correct.");
+                $("#totalScore").attr("class", "almostThere");
+            }
+            
+        });
+        
+        
+    </script>
+</html>

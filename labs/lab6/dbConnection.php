@@ -14,7 +14,13 @@ function getDatabaseConnection($dbname = 'ottermart') {
         $dbname = substr($url["path"], 1);
         $username = $url["user"];
         $password = $url["pass"];
-    } 
+        
+        echo "<script>console.log( 'CLEARDB_DATABASE_URL: " . $url . "' );</script>";
+        echo "<script>console.log( 'Host: " . $url["host"] . "' );</script>";
+        echo "<script>console.log( 'Path: " . $url["path"] . "' );</script>";
+        echo "<script>console.log( 'User: " . $url["user"] . "' );</script>";
+        echo "<script>console.log( 'Pass: " . $url["pass"] . "' );</script>";
+    }
 
     
     //creates db connection

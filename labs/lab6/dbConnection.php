@@ -9,10 +9,10 @@ function getDatabaseConnection($dbname = "ottermart") {
     //when connecting from Heroku
     if  (strpos($_SERVER['HTTP_HOST'], 'herokuapp') !== false) {
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        $host = $url["host"];
-        $dbname = substr($url["path"], 1);
-        $username = $url["user"];
-        $password = $url["pass"];
+        $host = "us-cdbr-iron-east-03.cleardb.net";
+        $dbname = "heroku_7ac4ca90e24c859";
+        $username = "b536b63d7d43fe";
+        $password = "3cce16be";
     } 
     
     $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

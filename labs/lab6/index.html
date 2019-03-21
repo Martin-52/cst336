@@ -56,11 +56,12 @@
                 
                 $(document).on('click', '.historyLink', function() {
                     $("#purchaseHistoryModal").modal("show");
+                    let id = $(this).attr("id");
                     $.ajax({
                         type: "GET",
                         url: "api/getPurchaseHistory.php",
                         dataType: "json",
-                        data: { "productId": $(this).attr("id") },
+                        data: { "productId": id },
                         success: function(data,status) {
                             if(data.length != 0) {
                                 $("#history").html("");

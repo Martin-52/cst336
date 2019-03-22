@@ -1,7 +1,7 @@
 <?php
     
     //To establish correction
-    include "../dbConnection.php";
+    include '../../../inc/dbConnection.php';
     $dbConn = getDatabaseConnection("ottermart");
 
 

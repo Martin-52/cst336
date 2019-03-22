@@ -1,6 +1,6 @@
 <?php
 
-    include '../dbConnection.php';
+    include '../../../inc/dbConnection.php';
     $conn = getDatabaseConnection("ottermart");
     
     $sql = "SELECT * FROM om_product WHERE 1";

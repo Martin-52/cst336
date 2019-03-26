@@ -1,0 +1,39 @@
+body {
+    text-align: center;
+    background-color: #2791ED;
+}
+
+#table {
+    visibility: hidden;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td{ 
+    border-left:2px solid #97CAEF;
+    border-right: 2px solid #97CAEF;
+    border-bottom: 2px solid #97CAEF;
+    border-top: 2px solid #97CAEF;
+}
+
+table {
+    color: white;
+}
+
+#quote, #author {
+    font-size: 2.6em;
+    color: #97CAEF;
+    font-family: 'Dancing Script',cursive;
+}
+
+.header {
+    height: 120px; 
+    text-align:center; 
+    display:table;
+    width:100%;
+    background-color: #7988A2;
+}
+

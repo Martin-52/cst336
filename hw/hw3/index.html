@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homework 3</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Dancing+Script" />
+        
+        <script>
+            
+            /*global $*/
+            $(document).ready(function() {
+                $("#employeeSubmit").on( "click", function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "api/getEmployees.php",
+                        dataType: "json",
+                        data: { "employee": $("#employees").val() },
+                        success: function(data,status) {
+                            $("#table").css("visibility", "visible");
+                            $("#name").html(data.name);
+                            $("#age").html(data.age);
+                            $("#sex").html(data.sex);
+                            $("#title").html(data.title);
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                        }
+                    });//ajax
+                }); //employeeSubmit On Click  
+                
+                
+                $("#quoteButton").on("click", function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "api/getQuotes.php",
+                        dataType: "json",
+                        success: function(data,status) {
+                            $("#quote").html('"' + data.quote + '"');
+                            $("#author").html(data.author);
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                        }
+                    });//ajax                    
+                });// On Quote Button Click
+            });// Document Ready
+
+                
+        </script>
+        
+    </head>
+    <body>
+        <div class="header"></div><br>
+        <h1>Employee Information</h1><br>
+        Select an employee to display information.
+        <select name="employees" id="employees">
+            <option value="manny">Manny</option>
+            <option value="mary">Mary</option>
+            <option value="simon">Simon</option>
+            <option value="jessica">Jessica</option>
+            <option value="jimmy">Jimmy</option>
+            <option value="tim">Tim</option>
+            <option value="tina">Tina</option>
+            <option value="johnny">Johnny</option>
+            <option value="nancy">Nancy</option>
+            <option value="oliver">Oliver</option>
+            <option value="pete">Pete</option>
+            <option value="samantha">Samantha</option>
+            <option value="jasmine">Jasmine</option>
+        </select><br><br>
+        
+        <button id="employeeSubmit">Submit</button><br><br>
+        
+        <span id="table">
+            
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Age</th> 
+                <th>Sex</th>
+                <th>Title</th>
+              </tr>
+              <tr>
+                <td id="name"></td>
+                <td id="age"></td> 
+                <td id="sex"></td>
+                <td id="title"></td>
+              </tr>
+            </table>
+            
+        </span><br><br><br>
+        
+        <h2>Click the button for a random quote.</h2><br>
+        
+        <button id="quoteButton">Random Quote</button><br><br>
+        
+        <div id="quote"></div><br>
+        
+        <div id="author"></div><br><br><br><br>
+        
+    </body>
+    
+    <footer>
+        <div class="header"></div>
+    </footer>
+</html>

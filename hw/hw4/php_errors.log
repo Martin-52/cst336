@@ -1,0 +1,45 @@
+[23-Apr-2019 03:30:03 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('pikachu', 'electric', 'NULL', ' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:30:38 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('pikachu', 'electric', 'NULL', ' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:30:43 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('geodude', 'ground', 'rock', 'h' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:32:18 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('geodude', 'ground', 'rock', 'h' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:34:33 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('pikachu', 'electric', 'NULL', ' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:35:21 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('pikachu', 'electric', 'NULL', ' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 03:40:03 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''pokemon', 'type1', 'type2', 'imageUrl') VALUES ('pikachu', 'electric', 'NULL', ' at line 1' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:23
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(23): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 23
+[23-Apr-2019 21:47:22 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'treecko' for key 'PRIMARY'' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:17
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(17): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 17
+[23-Apr-2019 21:47:53 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'cyndaquil' for key 'PRIMARY'' in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php:17
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php(17): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/hw/hw4/api/addPokemon.php on line 17

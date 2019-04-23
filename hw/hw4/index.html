@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PokeSearch</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        
+        <script>
+        
+            /* global $ */
+            
+            $(document).ready(function() {
+                
+                function addPokemon(data) {
+                    let type2 = "NULL";
+                    if(data.types[1] != null) {
+                        type2 = data.types[1].type.name;
+                    }
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "api/addPokemon.php",
+                        dataType: "json",
+                        data: { "image": data.sprites.front_default, "pokemon": data.forms[0].name, "type1":data.types[0].type.name, "type2" :type2 },
+                        success: function(data,status) {
+                            
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        }
+                    });//ajax
+                }                
+                    
+                
+                $("#submitButton").on("click", function() {
+                    let link = "https://pokeapi.co/api/v2/pokemon/" + $("#pokeName").val();
+                    $.ajax({
+                        type: "GET",
+                        url: link,
+                        dataType: "json",
+                        success: function(data,status) {
+                            $("#pokeImage").html("<img src='" + data.sprites.front_default + "' style='width:336px;height:336px;'>");
+                            $("#name").html("Name: " + data.forms[0].name);
+                            $("#pokeTypes").html("Type(s): ");
+                            $("#pokeTypes").append("<ul>");
+                            
+                            $("#pokeTypes").append("<li> " + data.types[0].type.name + " </li>");
+                            
+                            if(data.types[1] != null) {
+                               $("#pokeTypes").append("<li> " + data.types[1].type.name + " </li>"); 
+                            }
+                            
+                            $("#pokeTypes").append("</ul>");
+                            $("#pokeInfo").css("visibility", "visible");
+                            
+                            addPokemon(data);
+                        
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                        }
+                    });//ajax
+                }); //On submitButton Click
+                
+                $("#randomPokemon").on("click", function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "api/randomPokemon.php",
+                        dataType: "json",
+                        success: function(data,status) {
+                            $("#randomImage").html("<img src='" + data.imageUrl + "' style='width:336px;height:336px;'>");
+                            $("#randomName").html("Name: " + data.pokemon);
+                            $("#randomTypes").html("Type(s): ");
+                            $("#randomTypes").append("<ul>");
+                            
+                            $("#randomTypes").append("<li> " + data.type1 + " </li>");
+                            
+                            if(data.type2 != "NULL") {
+                               $("#randomTypes").append("<li> " + data.type2 + " </li>"); 
+                            }
+                            
+                            $("#randomTypes").append("</ul>");
+                            $("#random").css("visibility", "visible");
+                            
+                        
+                        },
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                        }
+                    });//ajax                    
+                }); // onRandomButton Click
+                
+            }); // Document Ready
+            
+        </script>
+    </head>
+    <body background = "pokemon.png">
+        <h1>PokeSearch</h1><br>
+        Search by name: <input type="text" id="pokeName"/> <button id="submitButton">Submit</button> <br>
+        
+        <div id="pokeInfo">
+            
+            <span id="pokeImage"></span><br>
+            
+            <span id="name"></span><br><br>
+            
+            <span id="pokeTypes"></span>
+            
+        </div><br>
+        
+        Click for a random Pokemon <button id="randomPokemon">Random</button><br><br>
+        
+        <div id="random">
+            
+            <span id="randomImage"></span><br>
+            
+            <span id="randomName"></span><br><br>
+            
+            <span id="randomTypes"></span>
+            
+        </div><br>
+
+    </body>
+</html>

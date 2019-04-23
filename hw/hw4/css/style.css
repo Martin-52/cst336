@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+}
+
+#pokeInfo {
+    visibility: hidden;
+}
+
+#random {
+    visibility: hidden;
+}

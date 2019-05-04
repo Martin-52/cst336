@@ -1,6 +1,12 @@
 <?php
 
  if (!empty($_FILES)) {
+     
+    print_r($_FILES);
+    
+    echo "<br>";
+    
+    echo "Image size: " . $_FILES['myFile']['size'] . "<br>";
     
     if($_FILES['myFile']['size'] > 1000000) {
         $message = "File too large!";

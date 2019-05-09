@@ -1,0 +1,21 @@
+[09-May-2019 21:33:47 UTC] PHP Warning:  include(/cst336/shoeStore/shell/bottom.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 37
+[09-May-2019 21:33:47 UTC] PHP Stack trace:
+[09-May-2019 21:33:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:33:47 UTC] PHP Warning:  include(): Failed opening '/cst336/shoeStore/shell/bottom.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 37
+[09-May-2019 21:33:47 UTC] PHP Stack trace:
+[09-May-2019 21:33:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:35:38 UTC] PHP Warning:  include(/cst336/shoeStore/shell/topPurchase.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 2
+[09-May-2019 21:35:38 UTC] PHP Stack trace:
+[09-May-2019 21:35:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:35:38 UTC] PHP Warning:  include(): Failed opening '/cst336/shoeStore/shell/topPurchase.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 2
+[09-May-2019 21:35:38 UTC] PHP Stack trace:
+[09-May-2019 21:35:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:35:38 UTC] PHP Warning:  include(/cst336/shoeStore/api/db/Database.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 3
+[09-May-2019 21:35:38 UTC] PHP Stack trace:
+[09-May-2019 21:35:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:35:38 UTC] PHP Warning:  include(): Failed opening '/cst336/shoeStore/api/db/Database.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 3
+[09-May-2019 21:35:38 UTC] PHP Stack trace:
+[09-May-2019 21:35:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0
+[09-May-2019 21:35:38 UTC] PHP Fatal error:  Class 'Database' not found in /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php on line 6
+[09-May-2019 21:35:38 UTC] PHP Stack trace:
+[09-May-2019 21:35:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/shoeStore/confirmCart.php:0

@@ -84,11 +84,5 @@
     
     <span id="updated"></span>
     
-    
-    
-    
-    
-    
-    
     </body>
 </html>

@@ -1,0 +1,233 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />        
+        
+        
+    </head>
+    
+    <body>
+        <h1>Discount Shopping!</h1>
+        
+        <table>
+            
+            <tr>
+                <th>
+                    Product
+                </th>
+                 <th>
+                    Unit Price
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Total
+                </th>                
+            </tr>
+            
+            <tr>
+                <td id="randomItem"><a href=></a></td>
+                <td id="itemPrice"></td>
+                <td id="itemQty"><input type="number" name="userQty" id="numInput"/></td>
+                <td id="randItemTotal"></td>                
+            </tr>
+            
+            <tr>
+                <td id="dropDown">
+                    <select name="products">
+                        <option value=""> Select One </option>
+                    </select>
+                </td>
+                <td id="unitPrice"></td>
+                <td id="unitQty"></td>
+                <td id="unitTotal"></td>
+            </tr>
+            
+            <tr>
+                <td>Discount</td>
+                <td></td>
+                <td id="discountQuantity"></td>
+                <td id="discountTotal"></td>                
+            </tr>
+            
+            <tr>
+                <td>Subtotal</td>
+                <td></td>
+                <td></td>
+                <td id="subtotalTotal"></td>
+            </tr>
+            
+            <tr>
+                <td>Tax (10%)</td>
+                <td></td>
+                <td></td>
+                <td id="taxTotal"></td>                
+            </tr>
+            
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td></td>
+                <td id="grandTotal"></td>                
+            </tr>
+            
+        </table>
+        <br>
+        <br>
+        
+        <b>Promo Code:</span><input type="text" name="promoCode" id="promo"/>
+        
+        <div class="modal" tabindex="-1" role="dialog" id="productInformation">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Product Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="information"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        
+    </body>
+    
+    <script>
+        
+        /* global $ */
+        
+        $.ajax({
+            type: "GET",
+            url: "api/getAllProducts.php",
+            dataType: "json",
+            success: function(data,status) {
+                //alert(data);
+                data.forEach(function(key){
+                    $("[name=products]").append("<option value=" + key["productId"] + ">" + key["productName"] + "</option>")
+                });                
+            },
+            complete: function(data,status) { //optional, used for debugging purposes
+            }
+        });//ajax
+        
+        $.ajax({
+            type: "GET",
+            url: "api/randomItemApi.php",
+            dataType: "json",
+            success: function(data,status) {
+                $("#randomItem").html("<a href='#' class='productLink' id='" + data["productId"] + "'>" + data["productName"] + "</a>");
+                $("#itemPrice").html(data["productPrice"]);
+                $("#numInput").val(1);
+                
+                updateValues();
+                
+            
+            },
+            complete: function(data,status) { //optional, used for debugging purposes
+                //alert(status);
+            }
+        });//ajax
+        
+                
+        $("#promo").on("change", function() {
+            $.ajax({
+            type: "GET",
+            url: "api/applyPromoCode.php",
+            dataType: "json",
+            data: { "promoCode": $("#promo").val() },
+            success: function(data,status) {
+                
+                updateValues();
+                
+            
+            },
+            complete: function(data,status) { //optional, used for debugging purposes
+                //alert(status);
+            }
+        });//ajax 
+        });
+        
+        $("#numInput").on("change", function() {
+            updateValues();
+        });
+        
+        $("[name=products]").on("change", function() {
+           let productId = $('option:selected', this).attr('value');
+           
+           $.ajax({
+                type: "GET",
+                url: "api/getProduct.php",
+                dataType: "json",
+                data: { "productId": productId },
+                success: function(data,status) {
+                    $("#dropDown").html("<a href='#' class='productLink' id='" + data["productId"] + "'>" + data["productName"] + "</a>")
+                    $("#unitPrice").html(data["productPrice"]);
+                },
+                complete: function(data,status) { //optional, used for debugging purposes
+                
+                }
+            });//ajax
+        });
+        
+        
+        function updateValues() {
+            let total = parseInt($("#itemPrice").text(), 10);
+            let qty = parseInt($("#numInput").val(), 10);
+            let discount = 0.0;
+            
+            total *= qty;
+            $("#randItemTotal").html("$"+total);
+            
+            if(!$("#discountQuantity").text() == "") {
+                let percent = parseFloat($("#discountQuantity").text()) / 100.00;
+                let discounted = total * percent;
+                $("#discountTotal").html(discounted);
+                discount = discounted;
+            } else {
+                $("#discountTotal").html("$0");
+                $("#discountQuantity").html("0%");
+            }
+            
+            $("#subtotalTotal").html("$" + (total - discount));
+            total = total - discount;
+            let tax = total * .10;
+            $("#taxTotal").html("$" + tax.toFixed(2));
+            
+            total += tax;
+            $("#grandTotal").html("$" + total.toFixed(2));
+        }
+        
+        $(document).on("click", ".productLink", function() {
+           $("#productInformation").modal("show"); 
+           let id = $(this).attr("id");
+
+            $.ajax({
+                type: "GET",
+                url: "api/getProduct.php",
+                dataType: "json",
+                data: { "productId": id },
+                success: function(data,status) {
+                    $("#information").html("");
+                    $("#information").append(data['productDescription'] + "<br>");
+                    $("#information").append("<img src='" + data['productImage'] + "' width='200' /> <br>");                
+                },
+                complete: function(data,status) { //optional, used for debugging purposes
+                    //alert(status);
+                }
+            });//ajax           
+        });
+        
+    </script>
+    
+</html>

@@ -1,0 +1,54 @@
+[15-Apr-2019 20:30:25 UTC] PHP Fatal error:  Call to undefined function getDBConnection() in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 4
+[15-Apr-2019 20:30:25 UTC] PHP Stack trace:
+[15-Apr-2019 20:30:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:0
+[15-Apr-2019 20:30:40 UTC] PHP Fatal error:  Call to undefined function getDBConnection() in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 4
+[15-Apr-2019 20:30:40 UTC] PHP Stack trace:
+[15-Apr-2019 20:30:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:0
+[15-Apr-2019 20:30:55 UTC] PHP Fatal error:  Call to undefined function getDBConnection() in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 4
+[15-Apr-2019 20:30:55 UTC] PHP Stack trace:
+[15-Apr-2019 20:30:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:0
+[15-Apr-2019 20:32:13 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'major', 'email', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:18
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(18): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 18
+[15-Apr-2019 20:34:56 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'major', 'email', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:18
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(18): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 18
+[15-Apr-2019 20:37:15 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'major', 'email', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:18
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(18): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 18
+[15-Apr-2019 20:40:33 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'major', 'email', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:18
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(18): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 18
+[15-Apr-2019 20:41:30 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'major', 'email', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:20
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(20): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 20
+[15-Apr-2019 20:42:20 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'email', 'major', 'zip') 
+    VALUES (?, ?, ?, ?)' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:20
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(20): PDO->prepare('INSERT INTO use...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 20
+[15-Apr-2019 20:44:03 UTC] PHP Fatal error:  Call to undefined function getDBConnection() in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 6
+[15-Apr-2019 20:44:03 UTC] PHP Stack trace:
+[15-Apr-2019 20:44:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:0
+[15-Apr-2019 20:44:32 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''name', 'email', 'major', 'zip') 
+    VALUES ('Martin', 'mlandin@csumb.edu', 'CS' at line 1' in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php:21
+Stack trace:
+#0 /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php(21): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/ubuntu/workspace/cst336/practice/p8/API/sendData.php on line 21

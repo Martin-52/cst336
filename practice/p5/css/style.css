@@ -1,0 +1,8 @@
+#video {
+    width: 100%;
+    height: 630px;
+}
+
+#like, #dislike, #likeNumber, #dislikeNumber {
+    float: right;
+}

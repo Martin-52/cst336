@@ -1,0 +1,4 @@
+[04-Mar-2019 21:11:52 UTC] PHP Warning:  in_array() expects parameter 2 to be array, null given in /home/ubuntu/workspace/cst336/practice/p5/videoLikesAPI.php on line 5
+[04-Mar-2019 21:11:52 UTC] PHP Stack trace:
+[04-Mar-2019 21:11:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/practice/p5/videoLikesAPI.php:0
+[04-Mar-2019 21:11:52 UTC] PHP   2. in_array() /home/ubuntu/workspace/cst336/practice/p5/videoLikesAPI.php:5

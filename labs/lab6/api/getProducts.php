@@ -19,6 +19,4 @@
     
     //echo $records[0]['productName'];
 
-
-
 ?>

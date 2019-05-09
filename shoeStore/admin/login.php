@@ -22,7 +22,7 @@ $(function(){
         // POST to server to check if username and password is correct
         $.ajax({
             type: "POST",
-            url: "/cst336/shoeStore/api/user/auth.php",
+            url: "/shoeStore/api/user/auth.php",
             data: { username: $("#username").val(), password: $("#password").val() },
             success: function(data, status){
                 if(data["success"] === true){

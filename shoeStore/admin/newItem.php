@@ -8,20 +8,20 @@ if(isset($_SESSION["id"])){
     $user = Database::getUserDao()->findById($_SESSION["id"]);
     // if no user was found or if user is not admin, return them
     if($user == null || !$user->isAdmin()){
-        header("Location: /cst336/shoeStore/admin/login.php");
+        header("Location: /shoeStore/admin/login.php");
         die();
     }
 } else {
     // found no valid session user id, take them back 
-    header("Location: /cst336/shoeStore/admin/login.php");
+    header("Location: /shoeStore/admin/login.php");
     die();
 }
 //if we reach here, user is an admin and is logged in
 include("../shell/top.php");
 ?>
 <div class="navigation-bar">
-    <a href="/cst336/shoeStore/admin/">＋ Admin Home</a>
-    <a href="/cst336/shoeStore/admin/newItem.php">＋ New Item</a>
+    <a href="/shoeStore/admin/">＋ Admin Home</a>
+    <a href="/shoeStore/admin/newItem.php">＋ New Item</a>
 </div>
 <!DOCTYPE html>
 <html>
